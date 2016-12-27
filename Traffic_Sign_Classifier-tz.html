@@ -16341,6 +16341,10 @@ qjFYSJKkagwWkiSpmv8P5XzQe5T8818AAAAASUVORK5CYII=
     <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="n">labels</span><span class="p">)))</span><span class="o">/</span><span class="n">predictions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">checkpoint_dir</span> <span class="o">=</span> <span class="s2">&quot;checkpoints&quot;</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">)</span>
+
 <span class="n">checkpoint_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">,</span> <span class="s2">&quot;checkpoint_submission.chk&quot;</span><span class="p">)</span>
 <span class="n">training_epochs</span> <span class="o">=</span> <span class="mi">21</span>
 <span class="n">mini_acc_batch</span> <span class="o">=</span> <span class="p">[]</span>
@@ -43774,14 +43778,31 @@ d9BJc0dHR0dHR0dHR0dHR0fHHfw/Ites2/EnHv8AAAAASUVORK5CYII=
 <span class="c1">### Feel free to use as many code cells as needed.</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">My model got 2 and a half out of 16 images correctly. </span>
+<span class="sd">My model got 2 and a half out of 16 captured images correctly. </span>
 
 <span class="sd">Accuracy: 2.5 / 16 = 15.625%</span>
 
-<span class="sd">I don&#39;t blame it for having such a low accuracy because many of the signs I test it </span>
-<span class="sd">on are photos taken in New York City, and they are completely new to the model. </span>
+<span class="sd">This performance is way lower compared to how well it does on the test set </span>
+<span class="sd">(Accuracy: 95.202%). As a result, I believe my model cannot perform well in </span>
+<span class="sd">the real world situation, especially outside Germany. </span>
 
-<span class="sd">The plots show my softmax probabilities here. It looks like that most of the time, </span>
+<span class="sd">I think a large reason that my model cannot recognize the captured images </span>
+<span class="sd">here is because the traffic signs presented are completely new to the model. </span>
+<span class="sd">There simply aren&#39;t anything like Image 3-5, 13-16 in the training set. I </span>
+<span class="sd">included them anyway in the assignment because I wanted to see if my model </span>
+<span class="sd">could make some sensible guesses. It turned out that it did in two cases. </span>
+
+<span class="sd">The other possible reasons are the different colors and shapes of traffic </span>
+<span class="sd">signs in the real world from the training set. I&#39;m surprised that my model </span>
+<span class="sd">cannot recognize the presence of a bicycle in the first image, but I think </span>
+<span class="sd">it is possibly because in the German traffic sign of Bicycle Crossing, </span>
+<span class="sd">the bicycle is enclosed in a red triangle with a white background where as </span>
+<span class="sd">the image I have is enclosed in a black-rimmed rhombus with a yellow </span>
+<span class="sd">background. This is also true for the incorrectly classified Animal Crossing </span>
+<span class="sd">signs (Image 10, 11). German Animal Crossing Signs are enclosed in red and </span>
+<span class="sd">white triangles. The ones I have are enclosed in yellow/orange black rhombi. </span>
+
+<span class="sd">Below are plots that show my softmax probabilities. It looks like that most of the time, </span>
 <span class="sd">my model is able to isolate one class to put its finger on, but not all the time, </span>
 <span class="sd">especially for images of indices: 3, 7, 13, 14. </span>
 <span class="sd">&#39;&#39;&#39;</span>
