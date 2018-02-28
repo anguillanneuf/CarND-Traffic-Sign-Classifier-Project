@@ -1,4 +1,4 @@
-# [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/sdc-banner-medium-1170_660.png)](http://www.udacity.com/drive)
+# [![How does the model do on real images?](https://github.com/anguillanneuf/CarND-Traffic-Sign-Classifier-Project/blob/master/tz_top3.png)](https://github.com/anguillanneuf/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier-tz.ipynb)
 
 # Deep Learning
 ## Project: Build a Traffic Sign Recognition Program
