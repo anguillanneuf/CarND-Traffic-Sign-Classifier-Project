@@ -1,3 +1,5 @@
+_Disclaimer: The model trained on the provided traffic sign images does really well on the test set images, but does poorly on real life images consisting of traffic signs in NYC and Europe. It looks like the model is not "smart" enough to generalize well. Please see more discussion in `Traffic_Sign_Classifier-tz.ipynb`._
+
 # [![How does the model do on real images?](https://github.com/anguillanneuf/CarND-Traffic-Sign-Classifier-Project/blob/master/tz_top3.png)](https://github.com/anguillanneuf/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier-tz.ipynb)
 
 # Deep Learning
